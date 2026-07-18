@@ -8,7 +8,7 @@ Case-study content lives in `_case_studies/`. Shared presentation lives in `_lay
 
 Set `published: false` to keep an unfinished case study out of the build. CopyTo remains unpublished until it has a working public destination, approved copy, and imagery.
 
-The resume has one editable source, `resume.md`. The Pages workflow renders `/resume/` and prints that page to `assets/wiktor-kaczmarek-resume.pdf` before deployment.
+The HTML resume lives in `resume.md`. A reviewed static download is committed at `assets/wiktor-kaczmarek-resume.pdf`; replace that file manually when the resume changes.
 
 ## Local build
 

@@ -23,32 +23,11 @@ jobs:
         with:
           ruby-version: "3.2"
           bundler-cache: true
-      - id: chrome
-        uses: browser-actions/setup-chrome@v2
       - uses: actions/configure-pages@v5
       - name: Build site
         run: bundle exec jekyll build --trace
         env:
           JEKYLL_ENV: production
-      - name: Generate resume PDF
-        shell: bash
-        run: |
-          mkdir -p _site/assets
-          ruby -run -e httpd _site -p 4000 >/tmp/madethis-http.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid"' EXIT
-          for attempt in {1..20}; do
-            curl --fail --silent http://127.0.0.1:4000/resume/ >/dev/null && break
-            sleep 0.25
-          done
-          "${{ steps.chrome.outputs.chrome-path }}" \
-            --headless \
-            --no-sandbox \
-            --disable-gpu \
-            --no-pdf-header-footer \
-            --print-to-pdf="$PWD/_site/assets/wiktor-kaczmarek-resume.pdf" \
-            http://127.0.0.1:4000/resume/ || true
-          test -s _site/assets/wiktor-kaczmarek-resume.pdf
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
