@@ -1,0 +1,34 @@
+---
+layout: default
+body_class: case-page
+---
+<article class="case-study">
+  <header class="case-intro">
+    <p class="eyebrow"><a href="{{ '/#projects' | relative_url }}">Selected project</a> / {{ page.period | escape }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    <p class="case-tagline">{{ page.tagline | escape }}</p>
+    <div class="case-facts">
+      <div><span>Role</span><p>{{ page.role | escape }}</p></div>
+      <div><span>Period</span><p>{{ page.period | escape }}</p></div>
+    </div>
+    {% if page.links and page.links.size > 0 %}
+    <p class="case-links">
+      {% for link in page.links %}<a class="button" href="{{ link.url }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}
+    </p>
+    {% endif %}
+  </header>
+
+  <figure class="case-hero">
+    <img src="{{ page.hero | relative_url }}" alt="{{ page.title | escape }} product interface" decoding="async">
+  </figure>
+
+  <div class="prose case-copy">
+    {{ content }}
+  </div>
+
+  <nav class="case-end" aria-label="Project navigation">
+    <a href="{{ '/#projects' | relative_url }}">← All selected projects</a>
+    <a href="https://madethis.blog/projects/">Previous projects ↗</a>
+  </nav>
+</article>
+

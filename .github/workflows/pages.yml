@@ -1,0 +1,65 @@
+name: Build and deploy portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+      - id: chrome
+        uses: browser-actions/setup-chrome@v2
+      - uses: actions/configure-pages@v5
+      - name: Build site
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+      - name: Generate resume PDF
+        shell: bash
+        run: |
+          mkdir -p _site/assets
+          ruby -run -e httpd _site -p 4000 >/tmp/madethis-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..20}; do
+            curl --fail --silent http://127.0.0.1:4000/resume/ >/dev/null && break
+            sleep 0.25
+          done
+          "${{ steps.chrome.outputs.chrome-path }}" \
+            --headless \
+            --no-sandbox \
+            --disable-gpu \
+            --no-pdf-header-footer \
+            --print-to-pdf="$PWD/_site/assets/wiktor-kaczmarek-resume.pdf" \
+            http://127.0.0.1:4000/resume/
+          test -s _site/assets/wiktor-kaczmarek-resume.pdf
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+

@@ -1,0 +1,12 @@
+<article class="project-card">
+  <a class="project-card-media" href="{{ include.project.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ include.project.hero | relative_url }}" alt="" loading="{% if include.index > 1 %}lazy{% else %}eager{% endif %}" decoding="async">
+  </a>
+  <div class="project-card-copy">
+    <p class="project-number">0{{ include.index }}</p>
+    <h3><a href="{{ include.project.url | relative_url }}">{{ include.project.title | escape }}</a></h3>
+    <p class="project-tagline">{{ include.project.tagline | escape }}</p>
+    <p class="project-meta">{{ include.project.role | escape }} · {{ include.project.period | escape }}</p>
+  </div>
+</article>
+

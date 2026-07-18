@@ -1,0 +1,36 @@
+title: madethis.online
+description: Product design and engineering by Wiktor Kaczmarek.
+url: https://madethis.online
+baseurl: ""
+author:
+  name: Wiktor Kaczmarek
+  email: allthingsdesignconsidered@gmail.com
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+collections:
+  case_studies:
+    output: true
+    permalink: /projects/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: case_studies
+    values:
+      layout: case-study
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - CONTENT_REVIEW.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+
