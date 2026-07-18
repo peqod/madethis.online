@@ -47,7 +47,7 @@ jobs:
             --disable-gpu \
             --no-pdf-header-footer \
             --print-to-pdf="$PWD/_site/assets/wiktor-kaczmarek-resume.pdf" \
-            http://127.0.0.1:4000/resume/
+            http://127.0.0.1:4000/resume/ || true
           test -s _site/assets/wiktor-kaczmarek-resume.pdf
       - uses: actions/upload-pages-artifact@v3
         with:
