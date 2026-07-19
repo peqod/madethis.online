@@ -32,6 +32,5 @@ permalink: /
   <p class="eyebrow">The longer view</p>
   <h2>Twenty years of design work did not fit on one homepage.</h2>
   <p>Broadcast, VFX, brand systems, experimental games, and ongoing project writing live in the blog archive.</p>
-  <a class="button" href="https://madethis.blog/projects/">Previous projects <span aria-hidden="true">↗</span></a>
+  <a class="button" href="https://madethis.blog/work/index.html">Previous projects <span aria-hidden="true">↗</span></a>
 </section>
-
