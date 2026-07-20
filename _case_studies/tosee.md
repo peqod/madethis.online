@@ -2,7 +2,7 @@
 title: Tosee
 tagline: A museum visit that begins with a link, not a plane ticket.
 role: Co-founder / CTO · Product design and engineering
-period: 2025–present
+period: 2025 | present
 order: 1
 hero: /assets/projects/tosee/tosee-hero1.gif
 intro_art: /assets/projects/tosee/tosee-hero0.gif

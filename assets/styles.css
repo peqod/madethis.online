@@ -315,38 +315,40 @@ button { font: inherit; }
 .case-panel--opening {
   min-height: clamp(38rem, 53vw, 52rem);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   color: #fff;
+  text-align: center;
 }
 .case-panel--opening::after {
   content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, rgba(12, 12, 47, 0.92) 0%, rgba(12, 12, 47, 0.78) 46%, rgba(12, 12, 47, 0.12) 86%);
+  background: rgba(0, 0, 0, 0.3);
 }
 .case-panel--opening .case-panel-copy {
-  width: min(calc(100% - 2rem), 92rem);
+  width: min(calc(100% - 2rem), 50rem);
   margin-inline: auto;
   padding: clamp(2rem, 6vw, 6rem) clamp(1.25rem, 4vw, 4rem);
+  transform: translateY(clamp(8rem, 18vw, 16rem));
 }
-.case-panel--opening .case-panel-copy > * { max-width: 43rem; }
+.case-panel--opening .case-panel-copy > * { max-width: 43rem; margin-inline: auto; }
 .case-panel--story {
-  min-height: max(90rem, calc(100vw * 1920 / 1431));
+  min-height: clamp(48rem, 60vw, 60rem);
+  display: flex;
+  align-items: center;
   background: #fff;
   color: #171713;
 }
-.case-panel--story::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(#fff 0%, rgba(255, 255, 255, 0.97) 25%, rgba(255, 255, 255, 0.82) 39%, rgba(255, 255, 255, 0) 55%);
-}
 .case-panel-art--matte {
-  inset: auto 0 0;
-  height: auto;
-  object-fit: contain;
+  inset: 0 0 0 auto;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  background-color: black;
+    opacity: 0.75;
 }
 .case-panel-grid {
   position: relative;
@@ -357,6 +359,14 @@ button { font: inherit; }
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(3rem, 7vw, 8rem);
+}
+.case-panel--story .case-panel-grid {
+  width: 60%;
+  margin: 0;
+  padding-block: clamp(3rem, 6vw, 6rem);
+  padding-left: max(clamp(2rem, 6vw, 6rem), calc((100vw - 92rem) / 2 + 4rem));
+  padding-right: clamp(2rem, 4vw, 4rem);
+  gap: clamp(2rem, 3vw, 4rem);
 }
 .case-panel--final {
   min-height: clamp(50rem, 63vw, 60rem);
@@ -372,8 +382,12 @@ button { font: inherit; }
   inset: 0;
   background: linear-gradient(90deg, rgba(9, 9, 49, 0.76), rgba(9, 9, 49, 0.2) 78%);
 }
-.case-panel-grid--final { grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr); }
-.case-panel-copy--status { align-self: end; }
+.case-panel-grid--final {
+  width: min(calc(100% - 2rem), 56rem);
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+.case-panel-copy--status { align-self: auto; }
 
 .resume { width: min(100%, 68rem); margin-inline: auto; }
 .resume-heading h1 { font-size: clamp(3.5rem, 10vw, 8rem); }
@@ -405,11 +419,20 @@ button { font: inherit; }
   .case-intro--art::after { background: rgba(7, 7, 6, 0.68); }
   .case-intro--art .case-facts { gap: 1rem; margin-top: 2.5rem; }
   .case-panel--opening { min-height: 42rem; }
-  .case-panel--opening::after { background: rgba(12, 12, 47, 0.74); }
   .case-panel--opening .case-panel-copy { width: calc(100% - 1.25rem); padding: 2.5rem 1.5rem; }
-  .case-panel--story { min-height: 94rem; }
+  .case-panel--story {
+    --story-art-width: clamp(5rem, 22vw, 5.5rem);
+    min-height: 0;
+    display: block;
+  }
+  .case-panel--story .case-panel-art--matte { width: var(--story-art-width); }
   .case-panel-grid,
   .case-panel-grid--final { width: calc(100% - 1.25rem); grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem; }
+  .case-panel--story .case-panel-grid {
+    width: calc(100% - var(--story-art-width));
+    margin: 0;
+    padding: 3rem 1.25rem;
+  }
   .case-panel--final { min-height: 68rem; align-items: flex-start; }
   .case-panel-copy--status { align-self: auto; }
   .site-footer { align-items: flex-start; }
