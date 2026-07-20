@@ -3,26 +3,33 @@ layout: default
 body_class: case-page
 ---
 <article class="case-study">
-  <header class="case-intro">
-    <p class="eyebrow"><a href="{{ '/#projects' | relative_url }}">Selected project</a> / {{ page.period | escape }}</p>
-    <h1>{{ page.title | escape }}</h1>
-    <p class="case-tagline">{{ page.tagline | escape }}</p>
-    <div class="case-facts">
-      <div><span>Role</span><p>{{ page.role | escape }}</p></div>
-      <div><span>Period</span><p>{{ page.period | escape }}</p></div>
-    </div>
-    {% if page.links and page.links.size > 0 %}
-    <p class="case-links">
-      {% for link in page.links %}<a class="button" href="{{ link.url }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}
-    </p>
+  <header class="case-intro{% if page.intro_art %} case-intro--art{% endif %}">
+    {% if page.intro_art %}
+    <img class="case-intro-art" src="{{ page.intro_art | relative_url }}" alt="" aria-hidden="true" decoding="async">
     {% endif %}
+    <div class="case-intro-copy">
+      <p class="eyebrow"><a href="{{ '/#projects' | relative_url }}">Selected project</a> / {{ page.period | escape }}</p>
+      <h1>{{ page.title | escape }}</h1>
+      <p class="case-tagline">{{ page.tagline | escape }}</p>
+      <div class="case-facts">
+        <div><span>Role</span><p>{{ page.role | escape }}</p></div>
+        <div><span>Period</span><p>{{ page.period | escape }}</p></div>
+      </div>
+      {% if page.links and page.links.size > 0 %}
+      <p class="case-links">
+        {% for link in page.links %}<a class="button" href="{{ link.url }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>{% endfor %}
+      </p>
+      {% endif %}
+    </div>
   </header>
 
+  {% unless page.hide_case_hero %}
   <figure class="case-hero">
     <img src="{{ page.hero | relative_url }}" alt="{{ page.title | escape }} product interface" decoding="async">
   </figure>
+  {% endunless %}
 
-  <div class="prose case-copy">
+  <div class="prose case-copy{% if page.composed_case %} case-copy--composed{% endif %}">
     {{ content }}
   </div>
 
@@ -31,4 +38,3 @@ body_class: case-page
     <a href="https://madethis.blog/projects/">Previous projects ↗</a>
   </nav>
 </article>
-
