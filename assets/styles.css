@@ -337,6 +337,7 @@ button { font: inherit; }
   transform: translateY(clamp(8rem, 18vw, 16rem));
 }
 .case-panel--opening .case-panel-copy > * { max-width: 43rem; margin-inline: auto; }
+.case-panel-copy > p:last-child { padding-bottom: 64px; }
 .case-panel--story {
   min-height: clamp(48rem, 60vw, 60rem);
   display: flex;
