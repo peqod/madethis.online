@@ -1,5 +1,5 @@
 <article class="project-card">
-  <a class="project-card-media" href="{{ include.project.url | relative_url }}" tabindex="-1" aria-hidden="true">
+  <a class="project-card-media{% if include.project.hero_fit == 'contain' %} project-card-media--contain{% endif %}" href="{{ include.project.url | relative_url }}" tabindex="-1" aria-hidden="true">
     <img src="{{ include.project.hero | relative_url }}" alt="" loading="{% if include.index > 1 %}lazy{% else %}eager{% endif %}" decoding="async">
   </a>
   <div class="project-card-copy">
@@ -9,4 +9,3 @@
     <p class="project-meta">{{ include.project.role | escape }} · {{ include.project.period | escape }}</p>
   </div>
 </article>
-

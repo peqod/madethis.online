@@ -24,7 +24,7 @@ body_class: case-page
   </header>
 
   {% unless page.hide_case_hero %}
-  <figure class="case-hero">
+  <figure class="case-hero{% if page.hero_fit == 'contain' %} case-hero--contain{% endif %}">
     <img src="{{ page.hero | relative_url }}" alt="{{ page.title | escape }} product interface" decoding="async">
   </figure>
   {% endunless %}

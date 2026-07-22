@@ -156,7 +156,9 @@ button { font: inherit; }
   object-fit: cover;
   transition: transform 450ms cubic-bezier(.2,.7,.2,1);
 }
+.project-card-media--contain img { object-fit: contain; }
 .project-card-media:hover img { transform: scale(1.015); }
+.project-card-media--contain:hover img { transform: none; }
 .project-card-copy { padding-bottom: 0.5rem; }
 .project-card h3 {
   margin: 0;
@@ -268,6 +270,7 @@ button { font: inherit; }
 
 .case-hero { margin: 0; background: var(--card); }
 .case-hero img { width: 100%; max-height: 82vh; object-fit: cover; }
+.case-hero--contain img { height: auto; max-height: none; object-fit: contain; }
 
 .prose {
   font-family: var(--serif);
@@ -389,6 +392,281 @@ button { font: inherit; }
 }
 .case-panel-copy--status { align-self: auto; }
 
+.archiplayer-page {
+  --archi-navy: #151b36;
+  --archi-navy-deep: #0c1022;
+  --archi-panel: #202846;
+  --archi-teal: #08786f;
+  --archi-cream: #f3edda;
+  --archi-orange: #ff9838;
+}
+.archiplayer-page .case-intro .eyebrow { color: var(--archi-teal); }
+.archiplayer-page .case-hero {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(1rem, 3.5vw, 3.5rem) max(1rem, calc((100vw - 92rem) / 2));
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(17, 170, 156, 0.18), transparent 28rem),
+    var(--archi-navy-deep);
+}
+.archiplayer-page .case-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 80%);
+  mask-image: linear-gradient(to bottom, #000, transparent 80%);
+}
+.archiplayer-page .case-hero img {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.4rem;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.48);
+}
+.archiplayer-page .case-copy--composed { overflow: visible; }
+.archiplayer-page .archi-index {
+  margin: 0 0 1rem;
+  color: var(--archi-teal);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.archi-opening,
+.archi-opportunity,
+.archi-adaptive,
+.archi-build {
+  width: min(calc(100% - 2rem), 92rem);
+  margin-inline: auto;
+}
+.archi-opening {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.75fr);
+  align-items: end;
+  gap: clamp(3rem, 9vw, 10rem);
+  padding-block: clamp(5rem, 10vw, 10rem);
+}
+.archi-opening-copy {
+  align-self: start;
+  max-width: 50rem;
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+}
+.archi-opening-copy p:last-child { margin-bottom: 0; color: var(--muted); }
+.archi-overview-aside {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+.archi-logo {
+  width: 100%;
+  height: auto;
+}
+.archi-snapshot {
+  margin: 0;
+  font-family: var(--sans);
+}
+.archi-snapshot div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding: 0.8rem 0;
+}
+.archi-snapshot dt {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.archi-snapshot dd { margin: 0; font-size: 0.86rem; text-align: right; }
+.archi-opportunity,
+.archi-build {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(3rem, 9vw, 10rem);
+  border-top: 1px solid var(--line);
+  padding-block: clamp(1.25rem, 3vw, 2rem) clamp(6rem, 11vw, 11rem);
+}
+.archi-section-title h2,
+.archi-adaptive-heading h2,
+.archi-impact h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-transform: none;
+}
+.archi-section-title h2 { font-size: clamp(2.5rem, 5vw, 5rem); }
+.archi-section-copy { max-width: 47rem; }
+.archi-section-copy > :last-child,
+.archi-build-detail > :last-child { margin-bottom: 0; }
+.archi-private {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  background: var(--archi-navy-deep);
+  color: #f6f2df;
+}
+.archi-private-inner {
+  width: min(calc(100% - 2rem), 92rem);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 8rem);
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2.5rem, 7vw, 8rem);
+}
+.archi-private .archi-section-title h2 { max-width: 10ch; }
+.archi-private .archi-index { color: #18b7a6; }
+.archi-private .archi-section-copy { color: #c5c8d7; }
+.archi-screen {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin: clamp(1rem, 3vw, 3rem) 0 0;
+  font-family: var(--sans);
+}
+.archi-screen-frame {
+  padding: clamp(0.35rem, 0.8vw, 0.7rem);
+  overflow: hidden;
+  background: var(--archi-panel);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.7rem;
+  box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.38);
+}
+.archi-screen-frame img {
+  width: 100%;
+  border-radius: 0.3rem;
+}
+.archi-screen figcaption,
+.archi-detail figcaption {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.archi-screen figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 0.85rem;
+  color: #8e94aa;
+}
+.archi-screen figcaption span { color: #f6f2df; }
+.archi-adaptive { padding-block: clamp(7rem, 13vw, 13rem); }
+.archi-adaptive-heading {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+.archi-adaptive-heading h2 { max-width: 15ch; font-size: clamp(3rem, 6.7vw, 6.8rem); }
+.archi-adaptive-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(20rem, 0.8fr);
+  gap: clamp(1rem, 2vw, 2rem);
+}
+.archi-detail { min-width: 0; margin: 0; font-family: var(--sans); }
+.archi-detail-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding: 0.7rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.archi-detail-label span:first-child { color: var(--ink); }
+.archi-detail-stage {
+  height: clamp(22rem, 31vw, 30rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(1.25rem, 3.2vw, 3.5rem);
+}
+.archi-detail--themes .archi-detail-stage { background: var(--archi-cream); }
+.archi-detail--themes img {
+  width: 100%;
+  border: 1px solid rgba(34, 30, 20, 0.16);
+  box-shadow: 0 1.5rem 3.5rem rgba(38, 31, 18, 0.16);
+}
+.archi-detail--collapsed .archi-detail-stage {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 152, 56, 0.13), transparent 12rem),
+    var(--archi-navy);
+}
+.archi-detail--collapsed img {
+  width: min(100%, 20.125rem);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.44);
+}
+.archi-detail figcaption { margin-top: 0.8rem; }
+.archi-build { padding-bottom: clamp(7rem, 12vw, 12rem); }
+.archi-build .archi-section-title > p:last-child { max-width: 22rem; color: var(--muted); }
+.archi-build-detail ul {
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  padding: 0;
+  font-family: var(--sans);
+  font-size: 0.91rem;
+  line-height: 1.55;
+  list-style: none;
+}
+.archi-build-detail li {
+  position: relative;
+  margin: 0;
+  padding: 0.9rem 0 0.9rem 1.7rem;
+  border-top: 1px solid var(--line);
+}
+.archi-build-detail li::before {
+  content: "↳";
+  position: absolute;
+  left: 0;
+  color: var(--archi-teal);
+}
+.archi-impact {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  padding: clamp(6rem, 12vw, 12rem) 1rem;
+  background: #dce9df;
+  color: #14201b;
+}
+.archi-impact > div { width: min(100%, 65rem); margin-inline: auto; }
+.archi-impact .archi-index { color: #1e6c62; }
+.archi-impact h2 { max-width: 10ch; font-size: clamp(3.5rem, 8vw, 8rem); }
+.archi-impact > div > p:last-child {
+  max-width: 42rem;
+  margin: clamp(2rem, 5vw, 4rem) 0 0 auto;
+  font-size: clamp(1.2rem, 2.1vw, 1.75rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  .archiplayer-page { --archi-teal: #11aa9c; }
+}
+
+@media (max-width: 900px) {
+  .archi-adaptive-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
 .resume { width: min(100%, 68rem); margin-inline: auto; }
 .resume-heading h1 { font-size: clamp(3.5rem, 10vw, 8rem); }
 .resume-contact { color: var(--muted); }
@@ -435,6 +713,30 @@ button { font: inherit; }
   }
   .case-panel--final { min-height: 68rem; align-items: flex-start; }
   .case-panel-copy--status { align-self: auto; }
+  .archi-opening,
+  .archi-opportunity,
+  .archi-adaptive,
+  .archi-build,
+  .archi-private-inner { width: calc(100% - 1.25rem); }
+  .archi-opening,
+  .archi-opportunity,
+  .archi-build,
+  .archi-private-inner,
+  .archi-adaptive-heading { grid-template-columns: 1fr; }
+  .archi-opening { align-items: start; gap: 3rem; }
+  .archi-overview-aside { width: 100%; min-height: 0; gap: 2.5rem; }
+  .archi-opening-copy { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+  .archi-opportunity,
+  .archi-build { gap: 2.5rem; }
+  .archi-private-inner { gap: 2rem; }
+  .archi-screen { margin-top: 1rem; }
+  .archi-screen figcaption { display: block; }
+  .archi-screen figcaption span { display: block; margin-bottom: 0.2rem; }
+  .archi-adaptive-heading { gap: 1.5rem; }
+  .archi-adaptive-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .archi-detail-stage { height: auto; min-height: 21rem; }
+  .archi-detail--collapsed .archi-detail-stage { min-height: 26rem; }
+  .archi-impact { padding-inline: 0.625rem; }
   .site-footer { align-items: flex-start; }
 }
 
@@ -444,6 +746,9 @@ button { font: inherit; }
   .home-intro h1 { font-size: 3.2rem; }
   .home-intro-foot { align-items: start; }
   .case-intro--art .case-intro-copy { width: calc(100% - 1.25rem); }
+  .archiplayer-page .case-hero { padding-inline: 0.625rem; }
+  .archi-detail-stage { min-height: 17rem; padding: 1.25rem; }
+  .archi-detail--collapsed .archi-detail-stage { min-height: 23rem; }
   .case-end,
   .site-footer { flex-direction: column; }
 }

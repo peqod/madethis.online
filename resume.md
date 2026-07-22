@@ -1,6 +1,6 @@
 ---
 layout: resume
-title: Resume: Wiktor Kaczmarek
+title: "Resume: Wiktor Kaczmarek"
 description: Resume for Wiktor Kaczmarek, designer, art director, and product builder.
 permalink: /resume/
 ---
