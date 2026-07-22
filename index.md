@@ -19,6 +19,7 @@ permalink: /
     <p>Currently building browser-native cultural experiences, local-first software, and the systems behind them.</p>
     <a href="#projects">Selected projects ↓</a>
   </div>
+  {% include social-icons.html %}
 </section>
 
 <section class="selected-projects" id="projects" aria-labelledby="projects-title">

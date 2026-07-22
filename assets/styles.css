@@ -152,6 +152,24 @@ button { font: inherit; }
 .home-intro-foot p { margin: 0; color: var(--muted); font-size: 1.1rem; }
 .home-intro-foot a { white-space: nowrap; }
 
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+.social-icons a {
+  display: inline-flex;
+  line-height: 0;
+  color: var(--ink);
+}
+.social-icons svg { width: 1.35rem; height: 1.35rem; }
+/* Envelope glyph fills only ~16 of 24 units tall; scale its box so its visible height matches the full-bleed brand marks. */
+.social-icons a[aria-label="Email"] svg { width: 2rem; height: 2rem; }
+.social-icons a:hover { color: var(--accent); }
+.site-footer .social-icons { margin-top: 1.25rem; }
+
 .selected-projects { padding-top: 5rem; }
 .section-heading {
   display: grid;
