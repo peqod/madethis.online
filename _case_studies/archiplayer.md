@@ -2,7 +2,7 @@
 title: Archiplayer
 tagline: Decades of freeform radio, turned into a library you can actually use.
 role: Creator · Product design and engineering
-period: 2026–present
+period: 2026|present
 order: 2
 hero: /assets/projects/archiplayer/archiplayer-hero.png
 published: true
@@ -15,7 +15,7 @@ links:
 
 WFMU has spent decades building one of the internet's great freeform-radio archives. The material is public, but discovery still asks listeners to understand an archive assembled show by show, playlist by playlist, over many generations of the web.
 
-Archiplayer turns that history into a personal desktop library.
+Archiplayer turns that history into a personal desktop library and a compact player.
 
 ## The opportunity
 
@@ -39,7 +39,7 @@ Archiplayer is a complete product rather than a player skin:
 - Windows, macOS, and Linux release automation with reproducible checks and published hashes;
 - a standalone download site and open-source contribution path.
 
-The design challenge was to respect the strangeness of freeform radio without reproducing the strangeness of the underlying information architecture. The interface makes the common paths obvious while preserving enough context for wandering—the behaviour that makes an archive like WFMU valuable in the first place.
+The design challenge was to respect the strangeness of freeform radio without reproducing the strangeness of the underlying information architecture. The interface makes the common paths obvious while preserving enough context for wandering: the behaviour that makes an archive like WFMU valuable in the first place.
 
 ## Why it matters
 
