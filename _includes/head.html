@@ -1,8 +1,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f1efe9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f1efe9">
 <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+<script>
+  (function () {
+    try {
+      var pref = localStorage.getItem('themePref');
+      var t = (pref === 'light' || pref === 'dark') ? pref
+        : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+  })();
+</script>
 <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
 {% seo %}
 

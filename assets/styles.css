@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --paper: #f1efe9;
   --ink: #171713;
   --muted: #66645e;
@@ -10,15 +10,14 @@
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #141412;
-    --ink: #efeee8;
-    --muted: #a4a29a;
-    --line: #3e3d38;
-    --accent: #ff6549;
-    --card: #201f1c;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #141412;
+  --ink: #efeee8;
+  --muted: #a4a29a;
+  --line: #3e3d38;
+  --accent: #ff6549;
+  --card: #201f1c;
 }
 
 * { box-sizing: border-box; }
@@ -85,6 +84,36 @@ button { font: inherit; }
 }
 .site-nav a,
 .site-footer a { text-decoration: none; }
+
+.theme-toggle {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--ink);
+  -webkit-mask: url("/assets/sun.svg") center/contain no-repeat;
+          mask: url("/assets/sun.svg") center/contain no-repeat;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.theme-toggle:hover .theme-toggle-icon {
+  transform: scale(1.12);
+  background-color: var(--accent);
+}
+[data-theme="dark"] .theme-toggle-icon {
+  -webkit-mask-image: url("/assets/moon.svg");
+          mask-image: url("/assets/moon.svg");
+}
 
 .site-footer {
   border-top: 1px solid var(--line);
@@ -700,9 +729,7 @@ button { font: inherit; }
   font-size: clamp(1.2rem, 2.1vw, 1.75rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  .archiplayer-page { --archi-teal: #11aa9c; }
-}
+[data-theme="dark"] .archiplayer-page { --archi-teal: #11aa9c; }
 
 @media (max-width: 900px) {
   .archi-adaptive-grid { grid-template-columns: 1fr; gap: 3rem; }

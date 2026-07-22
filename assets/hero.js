@@ -77,6 +77,8 @@ if (hero && stage) {
 
   new ResizeObserver(resize).observe(stage);
   darkMode.addEventListener("change", updateMaterialColor);
+  new MutationObserver(updateMaterialColor)
+    .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
   const loader = new GLTFLoader();
   loader.load(
