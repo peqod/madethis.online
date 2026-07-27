@@ -39,7 +39,7 @@ Built visuals for Canon, Ferrero Rocher, and CAT through Lionbridge/BBI. Led the
 - Defined the visual identity, UI/UX, marketing system, and flagship Road2Moon browser game, contributing to a successful $500K seed round.
 - Built an NFT processing pipeline for more than 10,000 assets and coordinated four designers on daily delivery.
 
-### Associate, Information System Team: Marriott International · 2017|2020
+### Associate, ASSIST team: Marriott International · 2017|2020
 
 - Supported service and information-system workflows during Marriott's integration of Starwood, concurrent with contract design work through Lionbridge.
 
