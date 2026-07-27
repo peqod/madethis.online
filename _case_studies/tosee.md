@@ -4,7 +4,7 @@ tagline: A museum visit that begins with a link, not a plane ticket.
 role: Co-founder / CTO · Product design and engineering
 period: 2025 | present
 order: 1
-hero: /assets/projects/tosee/tosee-hero1.gif
+hero: /assets/projects/tosee/tosee-hero1.jpg
 intro_art: /assets/projects/tosee/tosee-hero0.gif
 hide_case_hero: true
 composed_case: true
@@ -16,7 +16,7 @@ links:
 ---
 
 <section class="case-panel case-panel--opening">
-<img class="case-panel-art" src="{{ '/assets/projects/tosee/tosee-hero1.gif' | relative_url }}" alt="" loading="lazy" decoding="async">
+<img class="case-panel-art" src="{{ '/assets/projects/tosee/tosee-hero1.jpg' | relative_url }}" alt="" loading="lazy" decoding="async">
 <div class="case-panel-copy" markdown="1">
 
 Tosee turns cultural spaces into browser-native virtual visits. A visitor opens a URL and enters a photorealistic room on the device already in their hand. Without installing an app or downloading a game-sized package.
@@ -26,9 +26,9 @@ The product is built around a simple business idea: a museum's reach should not 
 </div>
 </section>
 
-<section class="case-panel case-panel--story">
-<img class="case-panel-art case-panel-art--matte" src="{{ '/assets/projects/tosee/tosee-hero2.gif' | relative_url }}" alt="" loading="lazy" decoding="async">
-<div class="case-panel-grid">
+<section class="case-panel case-panel--opportunity">
+<img class="case-panel-art case-panel-art--matte case-panel-art--portrait" src="{{ '/assets/projects/tosee/tosee-hero1a.gif' | relative_url }}" alt="" loading="lazy" decoding="async">
+<div class="case-panel-grid case-panel-grid--single">
 <div class="case-panel-copy" markdown="1">
 
 ## The opportunity
@@ -38,6 +38,12 @@ Museums and heritage institutions hold experiences that are scarce by design. Th
 Tosee gives an institution another venue: persistent, globally available, measurable, and able to carry the interpretation that makes a collection meaningful. It can support remote visits, education, accessibility, exhibition afterlives, and paid digital access without asking the institution to become a software company.
 
 </div>
+</div>
+</section>
+
+<section class="case-panel case-panel--story">
+<img class="case-panel-art case-panel-art--matte" src="{{ '/assets/projects/tosee/tosee-hero2.gif' | relative_url }}" alt="" loading="lazy" decoding="async">
+<div class="case-panel-grid case-panel-grid--single">
 <div class="case-panel-copy" markdown="1">
 
 ## From capture to visit

@@ -493,12 +493,18 @@ button { font: inherit; }
 }
 .case-panel--opening .case-panel-copy > * { max-width: 43rem; margin-inline: auto; }
 .case-panel-copy > p:last-child { padding-bottom: 64px; }
-.case-panel--story {
-  min-height: clamp(48rem, 60vw, 60rem);
+/* Both are single-column now, so they no longer need the two-column height. */
+.case-panel--story,
+.case-panel--opportunity {
+  min-height: clamp(40rem, 50vw, 52rem);
   display: flex;
   align-items: center;
   background: #fff;
   color: #171713;
+}
+.case-panel--opportunity {
+  background: #000;
+  color: #fff;
 }
 .case-panel-art--matte {
   inset: 0 0 0 auto;
@@ -519,13 +525,22 @@ button { font: inherit; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(3rem, 7vw, 8rem);
 }
-.case-panel--story .case-panel-grid {
+.case-panel--story .case-panel-grid,
+.case-panel--opportunity .case-panel-grid {
   width: 60%;
   margin: 0;
   padding-block: clamp(3rem, 6vw, 6rem);
   padding-left: max(clamp(2rem, 6vw, 6rem), calc((100vw - 92rem) / 2 + 4rem));
   padding-right: clamp(2rem, 4vw, 4rem);
   gap: clamp(2rem, 3vw, 4rem);
+}
+/* Single-column story panels: keep the measure readable inside the 60% column. */
+.case-panel-grid--single { grid-template-columns: minmax(0, 1fr); }
+.case-panel-grid--single .case-panel-copy { max-width: 38rem; }
+.case-panel-art--portrait {
+  object-position: center center;
+  background-color: #000;
+  opacity: 1;
 }
 .case-panel--final {
   min-height: clamp(50rem, 63vw, 60rem);
@@ -855,19 +870,23 @@ button { font: inherit; }
   .case-intro--art .case-facts { gap: 1rem; margin-top: 2.5rem; }
   .case-panel--opening { min-height: 42rem; }
   .case-panel--opening .case-panel-copy { width: calc(100% - 1.25rem); padding: 2.5rem 1.5rem; }
-  .case-panel--story {
+  .case-panel--story,
+  .case-panel--opportunity {
     --story-art-width: clamp(5rem, 22vw, 5.5rem);
     min-height: 0;
     display: block;
   }
-  .case-panel--story .case-panel-art--matte { width: var(--story-art-width); }
+  .case-panel--story .case-panel-art--matte,
+  .case-panel--opportunity .case-panel-art--matte { width: var(--story-art-width); }
   .case-panel-grid,
   .case-panel-grid--final { width: calc(100% - 1.25rem); grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem; }
-  .case-panel--story .case-panel-grid {
+  .case-panel--story .case-panel-grid,
+  .case-panel--opportunity .case-panel-grid {
     width: calc(100% - var(--story-art-width));
     margin: 0;
     padding: 3rem 1.25rem;
   }
+  .case-panel-grid--single .case-panel-copy { max-width: none; }
   .case-panel--final { min-height: 68rem; align-items: flex-start; }
   .case-panel-copy--status { align-self: auto; }
   .archi-opening,
