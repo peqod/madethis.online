@@ -112,7 +112,9 @@ if (hero && stage) {
 
       resize();
       renderer.setAnimationLoop(animate);
-      stage.classList.add("is-ready");
+      // One frame late so opacity: 0 is a resolved style before the class
+      // lands — otherwise a cached GLB paints straight to 1 with no fade.
+      requestAnimationFrame(() => stage.classList.add("is-ready"));
     },
     undefined,
     (error) => {
