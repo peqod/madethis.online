@@ -6,6 +6,9 @@
   --line: #c9c6bd;
   --accent: #d94329;
   --card: #e7e4dc;
+  /* Width of the classic scrollbar, measured by reel.js. 100vw includes it,
+     so any full-bleed breakout overshoots the visible viewport by this much. */
+  --sbw: 0px;
   --serif: Georgia, "Times New Roman", serif;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -151,7 +154,9 @@ button { font: inherit; }
   position: absolute;
   z-index: 0;
   inset: 0 auto 0 50%;
-  width: 100vw;
+  /* Abspos still counts toward document scroll width, and .home-intro does
+     not clip — so raw 100vw here overshoots by the scrollbar too. */
+  width: calc(100vw - var(--sbw));
   height: 100%;
   overflow: hidden;
   pointer-events: none;
@@ -267,8 +272,8 @@ button { font: inherit; }
   --accent: #ff6549;
 
   position: relative;
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+  width: calc(100vw - var(--sbw));
+  margin-inline: calc(50% - 50vw + var(--sbw) / 2);
   margin-top: clamp(8rem, 15vw, 15rem);
   overflow: hidden;
   isolation: isolate;

@@ -1,4 +1,16 @@
 (function () {
+  // 100vw includes the classic scrollbar, so the full-bleed band overshoots
+  // the visible viewport and pushes a horizontal scrollbar. Measure the gap
+  // and let the CSS subtract it. Done here rather than with overflow on
+  // html/body: a non-visible overflow on the root turns it into its own
+  // scroll container and breaks fragment scrolling.
+  function measureScrollbar() {
+    var w = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty('--sbw', (w > 0 ? w : 0) + 'px');
+  }
+  measureScrollbar();
+  window.addEventListener('resize', measureScrollbar);
+
   var btn = document.querySelector('[data-reel-embed]');
   if (!btn) return;
 
