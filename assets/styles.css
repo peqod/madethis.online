@@ -257,6 +257,87 @@ button { font: inherit; }
 }
 .home-archive > p:not(.eyebrow) { max-width: 38rem; margin: 1.5rem auto 2rem; color: var(--muted); }
 
+/* Reel — permanently-dark full-bleed band. Breakout follows .case-panel. */
+.reel {
+  /* The band is dark in both themes, so re-point the tokens at the dark
+     palette and let .eyebrow inherit a colour that survives on near-black. */
+  --ink: #efeee8;
+  --muted: #a4a29a;
+  --line: #3e3d38;
+  --accent: #ff6549;
+
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-top: clamp(8rem, 15vw, 15rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: #0d0d0c;
+  color: var(--ink);
+  padding-block: clamp(3rem, 7vw, 7rem);
+  /* Header is not sticky, so the global 6rem scroll-padding just makes the
+     #reel jump stop short. Cancel it and land the band flush at the top. */
+  scroll-margin-top: -6rem;
+}
+.reel-inner {
+  width: min(calc(100% - 2rem), 92rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+.reel-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.reel-frame > iframe,
+.reel-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.reel-play {
+  appearance: none;
+  padding: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+}
+.reel-poster { width: 100%; height: 100%; object-fit: cover; }
+/* ::after is the button's last child, so both it and the glyph need explicit
+   stacking or the scrim paints over the play mark. */
+.reel-play::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: rgba(7, 7, 6, 0.3);
+  transition: background 0.3s ease;
+}
+.reel-play:hover::after,
+.reel-play:focus-visible::after { background: rgba(7, 7, 6, 0.12); }
+.reel-play-icon {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: clamp(3.5rem, 7vw, 5.5rem);
+  aspect-ratio: 1;
+  background-color: #efeee8;
+  -webkit-mask: url("/assets/play.svg") center/contain no-repeat;
+          mask: url("/assets/play.svg") center/contain no-repeat;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.reel-play:hover .reel-play-icon,
+.reel-play:focus-visible .reel-play-icon {
+  transform: scale(1.12);
+  background-color: var(--accent);
+}
+
 .button {
   display: inline-block;
   border: 1px solid currentColor;
@@ -808,6 +889,7 @@ button { font: inherit; }
   .archi-detail-stage { height: auto; min-height: 21rem; }
   .archi-detail--collapsed .archi-detail-stage { min-height: 26rem; }
   .archi-impact { padding-inline: 0.625rem; }
+  .reel { margin-top: clamp(5rem, 12vw, 8rem); }
   .site-footer { align-items: flex-start; }
 }
 
@@ -820,6 +902,7 @@ button { font: inherit; }
   .archiplayer-page .case-hero { padding-inline: 0.625rem; }
   .archi-detail-stage { min-height: 17rem; padding: 1.25rem; }
   .archi-detail--collapsed .archi-detail-stage { min-height: 23rem; }
+  .reel-inner { padding-inline: 1rem; }
   .case-end,
   .site-footer { flex-direction: column; }
 }
@@ -837,6 +920,7 @@ button { font: inherit; }
   .site-header,
   .site-footer,
   .resume-actions,
+  .reel,
   .skip-link { display: none !important; }
   .resume-heading { padding: 0 0 5mm; }
   .resume-heading .eyebrow { display: none; }

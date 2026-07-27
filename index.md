@@ -34,6 +34,23 @@ permalink: /
   </div>
 </section>
 
+<section class="reel" id="reel" aria-labelledby="reel-title">
+  <div class="reel-inner">
+    <h2 class="eyebrow" id="reel-title">Reel</h2>
+    <div class="reel-frame">
+      <button
+        type="button"
+        class="reel-play"
+        data-reel-embed="https://www.youtube-nocookie.com/embed/D4EAoikL1YU?autoplay=1&amp;rel=0&amp;modestbranding=1"
+        aria-label="Play the showreel">
+        <img class="reel-poster" src="{{ '/assets/reel-poster.jpg' | relative_url }}"
+             alt="" loading="lazy" width="1280" height="720">
+        <span class="reel-play-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
 <section class="home-archive">
   <p class="eyebrow">The longer view</p>
   <h2>Twenty years of design work did not fit on one homepage.</h2>
@@ -50,3 +67,4 @@ permalink: /
   }
 </script>
 <script type="module" src="{{ '/assets/hero.js' | relative_url }}"></script>
+<script src="{{ '/assets/reel.js' | relative_url }}" defer></script>
