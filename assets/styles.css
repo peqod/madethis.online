@@ -850,6 +850,9 @@ button { font: inherit; }
 .text-button { border: 0; padding: 0; background: none; color: inherit; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
 .resume-copy { width: min(100%, 49rem); }
 .resume-copy h2 { border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 4rem; }
+/* Glue for phrases the source marks up as inseparable (numbers + units, names
+   + years). Global, not print-only: the same file feeds the web page. */
+.nowrap { white-space: nowrap; }
 
 .not-found { min-height: 65vh; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
 .not-found p:not(.eyebrow) { color: var(--muted); }
@@ -968,5 +971,17 @@ button { font: inherit; }
   .resume-copy p { margin: 0 0 2mm; }
   .resume-copy ul { margin: 0 0 2mm; }
   .resume-copy li { margin: 0.5mm 0; }
+  /* Typographic widows: Blink reflows the last few lines to avoid a one-word
+     tail. Page-break widows/orphans: never strand a single line across a
+     sheet. break-inside on the list keeps a job's bullets with its h3, which
+     already carries break-after: avoid. */
+  .resume-copy p,
+  .resume-copy li {
+    orphans: 2;
+    widows: 2;
+    text-wrap: pretty;
+  }
+  .resume-copy ul,
+  .resume-copy li { break-inside: avoid; }
   .resume-copy a { color: #000; text-decoration: none; }
 }
