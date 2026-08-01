@@ -30,11 +30,11 @@ github.com/peqod/Archiplayer · [madethis.online/projects/archiplayer/](/project
 
 ### AI Training Data Expert: Micro1 · 2026|present
 
-- Professional video annotation for a specialized AI training-data pipeline, applying twenty years of motion and VFX craft to expert-validated project work under NDA.
+- Professional video annotation for a specialized AI training-data pipeline, applying twenty years of motion and VFX craft <br> to expert-validated project work under NDA.
 
 ### Design Operations Lead: BBI Online, via Lionbridge · 2017|2024
 
-- Directed visual output for Ferrero Rocher, CAT, and Canon across concurrent EMEA and global campaigns in more than 40&nbsp;languages.
+- Directed visual output for Ferrero Rocher, CAT, and Canon across concurrent EMEA <br> and global campaigns in more than 40&nbsp;languages.
 - Designed a data-driven asset pipeline that made multi-language delivery five times faster without quality loss.
 
 ### Art Director / Lead Designer: Insert Stonks · 2022|2023
@@ -54,8 +54,8 @@ github.com/peqod/Archiplayer · [madethis.online/projects/archiplayer/](/project
 
 ### VFX / Motion Designer: Lightcraft · 2007|2010
 
-- Produced VFX and motion graphics for television commercials and film-festival content, including daily broadcast spots for Gazeta Wyborcza.
-- Animated and composited those spots in After Effects, and wrote the one-page PDF SOP that onboarded new editors onto a national TV commercial.
+- Produced VFX and motion graphics for television commercials and film-festival content, <br> including daily broadcast spots for Gazeta Wyborcza.
+- Animated and composited those spots in After Effects, and wrote the one-page PDF SOP that onboarded new editors onto <br> a national TV commercial.
 
 ### Freelance Motion & Visual Designer: Independent · 2004|present
 
